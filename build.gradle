@@ -36,11 +36,11 @@ task gradleVersion {
 	}
 }
 
-task gitAutoPush {
+task gitHead {
     println "*** auto git push task ***"
 }
 
-task gitAdd(type: Exec, dependsOn: 'gitAutoPush') {
+task gitAdd(type: Exec, dependsOn: 'gitHead') {
     commandLine 'cmd', '/c', 'git', 'add', "*"
 }
 

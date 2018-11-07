@@ -36,18 +36,16 @@ task gradleVersion {
 	}
 }
 
+// gitにpushするタスク群　もっといい方法ないかなー
 task gitHead {
     println "*** auto git push task ***"
 }
-
 task gitAdd(type: Exec, dependsOn: 'gitHead') {
     commandLine 'cmd', '/c', 'git', 'add', "*"
 }
-
 task gitCommit(type: Exec, dependsOn: 'gitAdd') {
     commandLine 'cmd', '/c', 'git', 'commit', "-m", '"auto commit"'
 }
-
 task gitPush(type: Exec, dependsOn: 'gitCommit') {
     commandLine 'cmd', '/c', 'git', 'push', "origin", "master"
 }
